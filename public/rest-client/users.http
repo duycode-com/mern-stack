@@ -1,0 +1,23 @@
+### Setting:https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@baseUrl = http://localhost:{{$dotenv PORT}}
+
+###
+GET {{baseUrl}}/api/users/all
+
+
+###
+GET {{baseUrl}}/api/users/trash
+
+
+###
+POST {{baseUrl}}/api/users/insert
+Content-Type: application/json
+
+{
+    "email": "oliver@gmail.com",
+    "username": "Oliver Twitch",
+    "phone": "0987456321",
+    "password": "123456"
+}
+

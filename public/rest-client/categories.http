@@ -1,0 +1,18 @@
+### Setting:https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@baseUrl = http://localhost:{{$dotenv PORT}}
+
+###
+GET {{baseUrl}}/api/categories/all
+
+###
+GET {{baseUrl}}/api/categories/trash
+
+###
+POST {{baseUrl}}/api/categories/insert
+Content-Type: application/json
+
+{
+    "name": "Language Programs",
+    "slug": "language-programs"
+}

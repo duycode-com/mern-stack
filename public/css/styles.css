@@ -1,0 +1,329 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html ol,
+html ul {
+  list-style: none;
+}
+
+html table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  -webkit-box-shadow: 4px 4px 4px #ccc;
+          box-shadow: 4px 4px 4px #ccc;
+}
+
+html th,
+html td {
+  padding: 3px 8px 4px 8px;
+  border: 1px solid #777;
+}
+
+html input {
+  padding-left: 5px;
+  outline: none;
+}
+
+html pre,
+html code {
+  font-family: monospace, monospace;
+  font-size: 1.4rem;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: 4px 4px 4px #ccc;
+          box-shadow: 4px 4px 4px #ccc;
+}
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  color: #3b4252;
+  background-color: #e9ecef;
+  min-height: 100vh;
+  font-size: 1.6rem;
+}
+
+body #header {
+  padding: 0 20px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #198754;
+  color: white;
+}
+
+body #header #logo a {
+  color: #fff;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+body #header #logo a:not(:first-child) {
+  border-left: 2px solid #fff;
+}
+
+body #header #navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #header #navbar a {
+  color: #fff;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+body #header #navbar a:not(:first-child) {
+  border-left: 2px solid #fff;
+}
+
+body #header #navbar a:hover {
+  text-decoration: underline;
+}
+
+body footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  background-color: #198754;
+  color: white;
+}
+
+body h2 {
+  font-size: 1.6rem;
+  margin: 5px 0;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #198754;
+}
+
+body button {
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+body button + button {
+  margin-left: 10px;
+}
+
+body input[type="checkbox"] {
+  cursor: pointer;
+}
+
+#content {
+  margin: 0 auto;
+  padding: 10px 20px;
+  max-width: 1400px;
+  min-height: calc(100vh - 100px);
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 2px #ccc;
+          box-shadow: 2px 2px 2px #ccc;
+}
+
+#content #trash {
+  margin-top: 20px;
+}
+
+#content #action {
+  margin-top: 20px;
+}
+
+#content #action .control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 900px) {
+  #content #action .control {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#content #action .control .formcontrol {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 20px;
+}
+
+#content #action .control .formcontrol .field {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#content #action .control .formcontrol .field label {
+  display: inline-block;
+  width: 100px;
+  text-transform: capitalize;
+}
+
+#content #action .control .formcontrol .field input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 24px;
+}
+
+#content #action .control .formcontrol .button_submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#content #action .control .formcontrol .authen .submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#content #action .control .response {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.my-table .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.my-table .options .options-action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-table .options .options-choose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-table .options .options-choose .options-show {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.my-table .options .options-choose .options-show:hover .dropdown-content {
+  display: block;
+}
+
+.my-table .options .options-choose .options-show .dropdown-content {
+  display: none;
+  min-width: 100%;
+  position: absolute;
+  background-color: #f1f1f1;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.my-table .options .options-choose .options-show .dropdown-content .list-key {
+  color: black;
+  padding: 5px 8px;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+}
+
+.my-table .options .options-choose .options-show .dropdown-content .list-key:hover {
+  background-color: #ddd;
+}
+
+.my-table .options .options-choose .options-show .dropdown-content .list-key label {
+  cursor: pointer;
+  display: inline-block;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.my-table table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.my-table .pagination {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.my-table .pagination ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-table .pagination ul li {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 2px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.my-table .pagination ul li:hover {
+  background-color: #ccc;
+}
+
+.my-table .pagination ul li.active {
+  background-color: #ccc;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,38 @@
+{
+    "name": "create-expressjs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon --inspect -w . -w .env src/server.js",
+        "build-react": "webpack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "expressjs",
+        "reactjs"
+    ],
+    "author": "duycode",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongodb": "^4.1.0",
+        "mongoose": "^5.13.7"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-react": "^7.14.5",
+        "babel-loader": "^8.2.2",
+        "nodemon": "^2.0.12",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "webpack": "^5.51.1",
+        "webpack-cli": "^4.8.0"
+    }
+}
