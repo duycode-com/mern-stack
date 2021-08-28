@@ -4,8 +4,7 @@ const ObjectId = require('mongodb').ObjectId
 class RootController {
     listCollections = async (req, res, next) => {
         try {
-            let list = await mongoDB.getDB().listCollections().toArray()
-            let result = await list
+            let result = await mongoDB.getDB().listCollections().toArray()
             res.json({ data: result })
         } catch (error) {
             console.log(error);

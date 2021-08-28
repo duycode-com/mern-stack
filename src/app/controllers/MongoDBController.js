@@ -5,6 +5,26 @@ module.exports = class MongoDBController {
     constructor(name) {
         this.name = name
     }
+    listDatabases = async () => {
+        try {
+            let listDB = await mongoDB.getClient().db().admin().listDatabases();
+            let result = listDB.databases.map(item => item.name)
+            res.json({ data: result })
+        } catch (error) {
+            console.log(error);
+            res.json({ error: error })
+        }
+    }
+    listCollections = async (req, res, next) => {
+        try {
+            let result = await mongoDB.getDB().listCollections().toArray()
+            res.json({ data: result })
+        } catch (error) {
+            console.log(error);
+            res.json({ error: error })
+        }
+    }
+
     list = async (req, res, next) => {
         try {
             let result = await mongoDB.getDB().collection(this.name).find({ removedAt: 0 }).toArray()
