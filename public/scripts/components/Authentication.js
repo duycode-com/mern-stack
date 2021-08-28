@@ -1,6 +1,6 @@
-import { _SERVER } from "../config/constants"
+import { url_list, url_login, url_logout, url_refresh_token, url_register } from "../config/constants"
 
-const {useState, useEffect} = React
+const { useState, useEffect } = React
 
 const Authentication = () => {
     const [email, setEmail] = useState('')
@@ -12,74 +12,52 @@ const Authentication = () => {
     const [account, setAccount] = useState({ email: '', password: '', username: '', phone: '' })
 
     useEffect(() => {
-        fetch(_SERVER + '/api/users/list')
+        fetch(url_list('users'))
             .then((res) => res.json())
             .then((res) => setAll(res.data))
     }, [response])
 
     const register = () => {
-        fetch(_SERVER + '/auth/register', {
+        fetch(url_register(), {
             method: 'POST',
             body: JSON.stringify(account),
             headers: { 'Content-Type': 'application/json' },
         })
             .then((res) => res.json())
-            .then((res) => response(res.data))
-
-        // fetch(host + '/insert', {
-        //     method: 'POST',
-        //     body: JSON.stringify(collection),
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        //     .then((res) => res.json())
-        //     .then((res) => setResponse(res.data))
+            .then((res) => setResponse(res))
     }
 
     const login = () => {
-        console.log(user);
-        fetch(_SERVER + '/auth/login', {
+        fetch(url_login(), {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' }
         })
             .then((res) => res.json())
-            .then((res) => response(res.data))
-
-
-        // fetch(host + '/insert', {
-        //     method: 'POST',
-        //     body: JSON.stringify(collection),
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        //     .then((res) => res.json())
-        //     .then((res) => setResponse(res.data))
+            .then((res) => setResponse(res))
     }
 
     const logout = () => {
-        fetch(_SERVER + '/auth/logout')
+        fetch(url_logout())
             .then((res) => res.json())
-            .then((res) => response(res.data))
+            .then((res) => setResponse(res))
     }
 
     const refreshToken = () => {
-        fetch(_SERVER + '/auth/refresh-token', {
+        fetch(url_refresh_token(), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({})
         })
             .then((res) => res.json())
-            .then((res) => response(res.data))
+            .then((res) => setResponse(res))
     }
 
     return (
         <div id="content">
             <div id="list" style={{ marginBottom: '40px' }}>
                 <h2>List Users</h2>
-                <table>
+                <table style={{ width: '100%' }}>
                     <thead>
                         <tr>
                             <td># </td>
@@ -94,34 +72,34 @@ const Authentication = () => {
                         {Array.isArray(all) && all[0] &&
                             all.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{index}</td>
+                                    <td>{index + 1}</td>
                                     <td>{item.email}</td>
                                     <td>{item.username}</td>
                                     <td>{item.password}</td>
                                     <td>{item.phone}</td>
-                                    <td><button onClick={()=>setUser({email: item.email, password: item.password})}>Get</button></td>
+                                    <td><button onClick={() => setUser({ email: item.email, password: item.password })}>Get</button></td>
                                 </tr>
                             ))}
                     </tbody>
                 </table>
             </div>
 
-            <div className='action'>
+            <div id='action'>
                 <div className="control">
                     <div className='formcontrol'>
                         <div className="authen">
                             <h2>Login</h2>
                             <div className="field">
                                 <label>Email</label>
-                                <input value={user.email} onChange={e => setUser({...user,email: e.target.value})} />
+                                <input value={user.email} onChange={e => setUser({ ...user, email: e.target.value })} />
                             </div>
                             <div className="field">
                                 <label>Password</label>
-                                <input value={user.password} onChange={e => setUser({...user,password: e.target.value})} />
+                                <input value={user.password} onChange={e => setUser({ ...user, password: e.target.value })} />
                             </div>
                             <div className='submit'>
-                                <button onClick={refreshToken} > Refresh Token </button>
-                                <button onClick={login} > Login </button>
+                                <button onClick={refreshToken}> Refresh Token </button>
+                                <button onClick={login}> Login </button>
                             </div>
                         </div>
 

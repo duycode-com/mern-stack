@@ -16,3 +16,8 @@ export const url_remove_list = (collection) => `${_SERVER}/api/${collection}/rem
 export const url_restore_list = (collection) => `${_SERVER}/api/${collection}/restore-list`
 export const url_destroy_list = (collection) => `${_SERVER}/api/${collection}/destroy-list`
 export const url_destroy_trash = (collection) => `${_SERVER}/api/${collection}/destroy-trash`
+
+export const url_login = () => `${_SERVER}/auth/login`
+export const url_register = () => `${_SERVER}/auth/register`
+export const url_logout = () => `${_SERVER}/auth/logout`
+export const url_refresh_token = () => `${_SERVER}/auth/refresh-token`

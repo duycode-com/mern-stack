@@ -24,8 +24,6 @@ const MyTable = ({ data, handleAPI }) => {
 
     const handleCheckboxAll = (e) => {
         if (e.target.checked) {
-            console.log("🚀 ~ file: MyTable.js ~ line 30 ~ useEffect ~ filterData().length", filterData().length)
-            console.log("🚀 ~ file: MyTable.js ~ line 30 ~ useEffect ~ filterData().length", filterData().length)
             setIds(pageData().map((item) => item._id))
         } else {
             setIds([])
@@ -72,9 +70,10 @@ const MyTable = ({ data, handleAPI }) => {
         <div className="my-table">
             <div className="options">
                 <div className="options-action">
-                    {handleAPI.remove_list && <button onClick={e => { handleAPI.remove_list(ids); setIds([]) }} > Remove Items List</button>}
-                    {handleAPI.restore_list && <button onClick={e => { handleAPI.restore_list(ids); setIds([]) }} > Restore Items List</button>}
-                    {handleAPI.destroy_list && <button onClick={e => { handleAPI.destroy_list(ids); setIds([]) }} > Destroy Items List</button>}
+                    <span>Checked: {ids.length} </span>
+                    {handleAPI.remove_list && <button onClick={e => { handleAPI.remove_list(ids); setIds([]) }} > Remove Them</button>}
+                    {handleAPI.restore_list && <button onClick={e => { handleAPI.restore_list(ids); setIds([]) }} > Restore Them</button>}
+                    {handleAPI.destroy_list && <button onClick={e => { handleAPI.destroy_list(ids); setIds([]) }} > Destroy Them</button>}
                     {handleAPI.clean_trash && <button onClick={e => { handleAPI.clean_trash(); setIds([]) }} > Clean Trash</button>}
                 </div>
                 <div className="options-choose">
@@ -86,17 +85,8 @@ const MyTable = ({ data, handleAPI }) => {
                             ))}
                         </select>
                     </div>
-                    <div>
-                        <select value={perPage} onChange={e => { setPerPage(e.target.value) }}>
-                            <option value={2}>2</option>
-                            <option value={5}>5</option>
-                            <option value={10}>10</option>
-                            <option value={20}>20</option>
-                            <option value={50}>50</option>
-                        </select>
-                    </div>
                     <div className="options-show">
-                        <button className="dropbtn">Options List Show</button>
+                        <button className="dropbtn">Option Setting Show</button>
                         <div className="dropdown-content">
                             {allKeys.map((key, index) => (
                                 <div key={index} className='list-key'>
@@ -149,6 +139,17 @@ const MyTable = ({ data, handleAPI }) => {
             </table>
 
             <div className="pagination">
+                <div>
+                    <span>Show </span>
+                    <select value={perPage} onChange={e => { setPerPage(e.target.value) }}>
+                        <option value={2}>2</option>
+                        <option value={5}>5</option>
+                        <option value={10}>10</option>
+                        <option value={20}>20</option>
+                        <option value={50}>50</option>
+                    </select>
+                    <span> / Page. Total: {filterData().length}</span>
+                </div>
                 <ul>
                     {pagination(page, Math.ceil(filterData().length / perPage)).map((item, index) => {
                         return <li key={index}

@@ -13,6 +13,7 @@ mongoDB.connect(uri, process.env.MONGODB_DB_NAME)
 //-- REST Middleware--
 // Convert request.body from json to object
 app.use(express.json())
+
 //Allow access from localhost
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
@@ -20,8 +21,14 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Content-Type')
     next()
 })
+
+//Static folder
 const path = require('path')
 app.use(express.static(path.join(__dirname, '../public')))
+
+//Use cookieParser
+const cookieParser = require('cookie-parser');
+app.use(cookieParser(process.env.SECRET_SIGNEDCOOKIES));
 
 const router = require('./app/routes/routes.js')
 app.use('/', router)

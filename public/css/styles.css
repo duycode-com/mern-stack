@@ -138,6 +138,11 @@ body input[type="checkbox"] {
   cursor: pointer;
 }
 
+body pre {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
 #content {
   margin: 0 auto;
   padding: 10px 20px;
@@ -240,6 +245,10 @@ body input[type="checkbox"] {
   display: flex;
 }
 
+.my-table .options .options-action span {
+  margin-right: 10px;
+}
+
 .my-table .options .options-choose {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -299,10 +308,9 @@ body input[type="checkbox"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .my-table .pagination ul {
